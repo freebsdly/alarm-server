@@ -19,13 +19,17 @@ import org.pjsip.pjsua2.pjmedia_srtp_use;
 import org.pjsip.pjsua2.pjsip_transport_type_e;
 import org.pjsip.pjsua2.pjsua2;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Getter
+@Setter
 public class SipApp extends pjsua2 {
     public static Endpoint ep = new Endpoint();
     public static SipAppObserver observer;
-    public List<SipAccount> accList = new ArrayList<SipAccount>();
+    private List<SipAccount> accounts = new ArrayList<SipAccount>();
 
     private List<SipAccountConfig> accountCfgs = new ArrayList<SipAccountConfig>();
     private EpConfig epConfig = new EpConfig();
@@ -166,12 +170,12 @@ public class SipApp extends pjsua2 {
             return null;
         }
 
-        accList.add(acc);
+        accounts.add(acc);
         return acc;
     }
 
     public void delAccount(SipAccount acc) {
-        accList.remove(acc);
+        accounts.remove(acc);
     }
 
     private void loadConfig(String filename) {
@@ -211,7 +215,7 @@ public class SipApp extends pjsua2 {
     private void buildAccConfigs() {
         /* Sync accCfgs from accList */
         accountCfgs.clear();
-        for (SipAccount acc : accList) {
+        for (SipAccount acc : accounts) {
             SipAccountConfig accountCfg = new SipAccountConfig();
             accountCfg.setAccountCfg(acc.getCfg());
 

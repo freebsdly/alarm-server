@@ -27,17 +27,23 @@ public class CallService {
         try {
             app.init(observer, ".", true);
         } catch (Exception e) {
-            System.out.println(e);
+            log.error(e.getMessage());
             app.deinit();
             System.exit(-1);
         }
 
-        if (app.accList.size() == 0) {
+        if (app.getAccounts().isEmpty()) {
+            log.error("need at last one account");
+            app.deinit();
+            System.exit(-1);
+        }
+
+        if (app.getAccounts().size() == 0) {
             accCfg = new AccountConfig();
             accCfg.setIdUri("sip:localhost");
             account = app.addAccount(accCfg);
 
-            accCfg.setIdUri("sip:test@pjsip.org");
+            accCfg.setIdUri("sip:test@localhost");
             AccountSipConfig sipCfg = accCfg.getSipConfig();
             AuthCredInfoVector ciVec = sipCfg.getAuthCreds();
             ciVec.add(new AuthCredInfo("Digest",
@@ -47,13 +53,13 @@ public class CallService {
                     "passwd"));
 
             StringVector proxy = sipCfg.getProxies();
-            proxy.add("sip:pjsip.org;transport=tcp");
+            proxy.add("sip:localhost;transport=tcp");
 
             AccountRegConfig regCfg = accCfg.getRegConfig();
-            regCfg.setRegistrarUri("sip:pjsip.org");
+            regCfg.setRegistrarUri("sip:localhost");
             account = app.addAccount(accCfg);
         } else {
-            account = app.accList.get(0);
+            account = app.getAccounts().get(0);
             accCfg = account.getCfg();
         }
 
