@@ -1,6 +1,6 @@
 package com.example.alarmserver;
 
-import com.example.alarmserver.services.CallService__BeanDefinitions;
+import com.example.alarmserver.services.sip.CallService__BeanDefinitions;
 import org.springframework.aop.framework.autoproxy.InfrastructureAdvisorAutoProxyCreator__BeanDefinitions;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages__BeanDefinitions;

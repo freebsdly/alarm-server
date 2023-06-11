@@ -151,7 +151,7 @@
                "sipUpnpUse":           0,
                "mediaUpnpUse":         0,
                "nat64Opt":             0,
-               "iceEnabled":           false,
+               "iceEnabled":           true,
                "iceTrickle":           0,
                "iceMaxHostCands":      -1,
                "iceAggressiveNomination": true,
@@ -179,8 +179,8 @@
             "AccountMediaConfig":   { 
                "lockCodecEnabled":     true,
                "streamKaEnabled":      false,
-               "srtpUse":              0,
-               "srtpSecureSignaling":  1,
+               "srtpUse":              1,
+               "srtpSecureSignaling":  0,
                "SrtpOpt":              { 
                   "cryptos":              [ ],
                   "keyings":              [ ]
@@ -228,8 +228,8 @@
                "rtcpXrEnabled":        false
             },
             "AccountVideoConfig":   { 
-               "autoShowIncoming":     false,
-               "autoTransmitOutgoing": false,
+               "autoShowIncoming":     true,
+               "autoTransmitOutgoing": true,
                "windowFlags":          0,
                "defaultCaptureDevice": -1,
                "defaultRenderDevice":  -2,
@@ -304,7 +304,7 @@
                "sipUpnpUse":           0,
                "mediaUpnpUse":         0,
                "nat64Opt":             0,
-               "iceEnabled":           false,
+               "iceEnabled":           true,
                "iceTrickle":           0,
                "iceMaxHostCands":      -1,
                "iceAggressiveNomination": true,
@@ -332,8 +332,8 @@
             "AccountMediaConfig":   { 
                "lockCodecEnabled":     true,
                "streamKaEnabled":      false,
-               "srtpUse":              0,
-               "srtpSecureSignaling":  1,
+               "srtpUse":              1,
+               "srtpSecureSignaling":  0,
                "SrtpOpt":              { 
                   "cryptos":              [ ],
                   "keyings":              [ ]
@@ -381,8 +381,8 @@
                "rtcpXrEnabled":        false
             },
             "AccountVideoConfig":   { 
-               "autoShowIncoming":     false,
-               "autoTransmitOutgoing": false,
+               "autoShowIncoming":     true,
+               "autoTransmitOutgoing": true,
                "windowFlags":          0,
                "defaultCaptureDevice": -1,
                "defaultRenderDevice":  -2,
